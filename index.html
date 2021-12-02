@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="icon" href="favicon (2).ico">
+    <title>CANVAS-RANDOM-COLOR</title>
+    <style>
+      #canvas{
+        border:5px solid black;
+        background-size:100%;
+      }
+      body{
+            text-align: center;
+        }
+    </style>
+  </head>
+  <body>
+    <script>
+      function draw(){
+        var ctx = document.getElementById("canvas").getContext("2d");
+        ctx.arc(200,200,100,0,Math.PI*2,false);
+        ctx.stroke();
+        ctx.fillStyle = randomColorRGB();
+        ctx.fill();
+      }
+      window.onload=draw;
+      function randomColorRGB(){
+        var r=Math.floor(Math.random()*256);
+        var g=Math.floor(Math.random()*256);
+        var b=Math.floor(Math.random()*256);
+        return 'rgb('+r+','+g+','+b+')';
+      }
+      setInterval(draw,refresh);
+  </script>
+    <div>
+   <input type="button" value="press to change the color" onClick="window.location.reload()"/>
+   </div>
+    <canvas id="canvas" width="500" height="500">
+  </body>
+</html>
